@@ -1,5 +1,4 @@
 // import PlaceholderImg from "@/assets/images/background/placeholder.svg";
-import LocalePicker from "@/components/locale-picker";
 import Logo from "@/components/logo";
 import { GLOBAL_CONFIG } from "@/global-config";
 import SettingButton from "@/layouts/components/setting-button";
@@ -44,7 +43,6 @@ function LoginPage() {
 			</div>
 
 			<div className="absolute right-4 top-4 flex flex-row">
-				<LocalePicker />
 				<SettingButton />
 			</div>
 		</div>

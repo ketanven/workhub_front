@@ -24,7 +24,7 @@ class AdminAuthService {
   }
 
   getProfile() {
-    return apiClient.get({ url: ENDPOINTS.ADMIN.PROFILE });
+    return apiClient.get({ url: ENDPOINTS.ADMIN.PROFILE, skipErrorToast: true } as any);
   }
 
   changePassword(data: any) {

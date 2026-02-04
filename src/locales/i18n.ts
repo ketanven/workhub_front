@@ -4,9 +4,9 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 import { LocalEnum, StorageEnum } from "#/enum";
 import en_US from "./lang/en_US";
-import zh_CN from "./lang/zh_CN";
 
-const defaultLng = getStringItem(StorageEnum.I18N) || (LocalEnum.en_US as string);
+const storedLng = getStringItem(StorageEnum.I18N);
+const defaultLng = storedLng === LocalEnum.en_US ? storedLng : (LocalEnum.en_US as string);
 
 // 初始化时设置HTML lang属性，否则系统语言和设定不同时会弹出浏览器的翻译提示
 document.documentElement.lang = defaultLng;
@@ -28,7 +28,6 @@ i18n
 		},
 		resources: {
 			en_US: { translation: en_US },
-			zh_CN: { translation: zh_CN },
 		},
 	});
 

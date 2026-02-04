@@ -28,75 +28,20 @@ export const frontendNavData: NavProps["data"] = [
 				icon: <Icon icon="local:ic-management" size="24" />,
 				children: [
 					{
-						title: "sys.nav.user.index",
-						path: "/management/user",
-						children: [
-							{
-								title: "sys.nav.user.profile",
-								path: "/management/user/profile",
-							},
-							{
-								title: "sys.nav.user.account",
-								path: "/management/user/account",
-							},
-						],
+						title: "sys.nav.system.user",
+						path: "/management/system/user",
 					},
 					{
-						title: "sys.nav.system.index",
-						path: "/management/system",
-						children: [
-							{
-								title: "sys.nav.system.permission",
-								path: "/management/system/permission",
-							},
-							{
-								title: "sys.nav.system.role",
-								path: "/management/system/role",
-							},
-							{
-								title: "sys.nav.system.user",
-								path: "/management/system/user",
-							},
-						],
+						title: "sys.nav.system.role",
+						path: "/management/system/role",
+					},
+					{
+						title: "sys.nav.system.permission",
+						path: "/management/system/permission",
 					},
 				],
 			},
 			// menulevel
-			{
-				title: "sys.nav.menulevel.index",
-				path: "/menu_level",
-				icon: <Icon icon="local:ic-menulevel" size="24" />,
-				children: [
-					{
-						title: "sys.nav.menulevel.1a",
-						path: "/menu_level/1a",
-					},
-					{
-						title: "sys.nav.menulevel.1b.index",
-						path: "/menu_level/1b",
-						children: [
-							{
-								title: "sys.nav.menulevel.1b.2a",
-								path: "/menu_level/1b/2a",
-							},
-							{
-								title: "sys.nav.menulevel.1b.2b.index",
-								path: "/menu_level/1b/2b",
-								children: [
-									{
-										title: "sys.nav.menulevel.1b.2b.3a",
-										path: "/menu_level/1b/2b/3a",
-									},
-									{
-										title: "sys.nav.menulevel.1b.2b.3b",
-										path: "/menu_level/1b/2b/3b",
-									},
-								],
-							},
-						],
-					},
-				],
-			},
 			// errors
 			{
 				title: "sys.nav.error.index",
@@ -159,22 +104,6 @@ export const frontendNavData: NavProps["data"] = [
 					},
 				],
 			},
-			// functions
-			{
-				title: "sys.nav.functions",
-				path: "/functions",
-				icon: <Icon icon="solar:plain-2-bold-duotone" size="24" />,
-				children: [
-					{
-						title: "sys.nav.clipboard",
-						path: "/functions/clipboard",
-					},
-					{
-						title: "sys.nav.token_expired",
-						path: "/functions/token_expired",
-					},
-				],
-			},
 		],
 	},
 	{
@@ -208,37 +137,6 @@ export const frontendNavData: NavProps["data"] = [
 				path: "/disabled",
 				icon: <Icon icon="local:ic-disabled" size="24" />,
 				disabled: true,
-			},
-			{
-				title: "sys.nav.label",
-				path: "#label",
-				icon: <Icon icon="local:ic-label" size="24" />,
-				info: (
-					<Badge variant="info">
-						<Icon icon="solar:bell-bing-bold-duotone" size={14} />
-						New
-					</Badge>
-				),
-			},
-			{
-				title: "sys.nav.link",
-				path: "/link",
-				icon: <Icon icon="local:ic-external" size="24" />,
-				children: [
-					{
-						title: "sys.nav.external_link",
-						path: "/link/external-link",
-					},
-					{
-						title: "sys.nav.iframe",
-						path: "/link/iframe",
-					},
-				],
-			},
-			{
-				title: "sys.nav.blank",
-				path: "/blank",
-				icon: <Icon icon="local:ic-blank" size="24" />,
 			},
 		],
 	},

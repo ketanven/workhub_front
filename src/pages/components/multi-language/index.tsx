@@ -35,10 +35,6 @@ export default function MultiLanguagePage() {
 							<RadioGroupItem value={LocalEnum.en_US} id="en_US" />
 							<label htmlFor="en_US">English</label>
 						</div>
-						<div className="flex items-center space-x-2">
-							<RadioGroupItem value={LocalEnum.zh_CN} id="zh_CN" />
-							<label htmlFor="zh_CN">Chinese</label>
-						</div>
 					</RadioGroup>
 
 					<div className="flex items-center text-4xl">

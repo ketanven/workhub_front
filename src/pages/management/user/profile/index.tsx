@@ -1,8 +1,8 @@
 import bannerImage from "@/assets/images/background/banner-1.png";
 import { Icon } from "@/components/icon";
+import UserAvatar from "@/components/user-avatar";
 import { useUserInfo } from "@/store/userStore";
 import { themeVars } from "@/theme/theme.css";
-import { Avatar, AvatarImage } from "@/ui/avatar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/ui/tabs";
 import { Text, Title } from "@/ui/typography";
 import type { CSSProperties } from "react";
@@ -51,9 +51,7 @@ function UserProfile() {
 			<div className="relative flex flex-col justify-center items-center gap-4 p-4">
 				<div style={bgStyle} className="h-full w-full z-1" />
 				<div className="flex flex-col items-center justify-center gap-2 z-2">
-					<Avatar className="h-24 w-24">
-						<AvatarImage src={avatar} className="rounded-full" />
-					</Avatar>
+					<UserAvatar src={avatar} name={username} size={96} />
 					<div className="flex flex-col justify-center items-center gap-2">
 						<div className="flex items-center gap-2">
 							<Title as="h5" className="text-xl">

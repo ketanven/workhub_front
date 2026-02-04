@@ -26,19 +26,27 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
 	(res: AxiosResponse<Result<any>>) => {
 		if (!res.data) throw new Error(t("sys.api.apiRequestFailed"));
-		const { status, data, message } = res.data;
-		if (status === ResultStatus.SUCCESS || status === 200) {
-			return data;
+		// Support both legacy { status, data, message } and raw REST responses
+		if (typeof res.data === "object" && "status" in res.data) {
+			const { status, data, message } = res.data as Result<any>;
+			if (status === ResultStatus.SUCCESS || (typeof status === "number" && status >= 200 && status < 300)) {
+				return data;
+			}
+			throw new Error(message || t("sys.api.apiRequestFailed"));
 		}
-		throw new Error(message || t("sys.api.apiRequestFailed"));
+		return res.data;
 	},
 	(error: AxiosError<Result>) => {
-		const { response, message } = error || {};
+		const { response, message, config } = error || {};
 		const errMsg = response?.data?.message || message || t("sys.api.errorMessage");
+		
+		// Check if this request should skip error toast
+		const skipErrorToast = (config as any)?.skipErrorToast;
+		
 		// toast.error(errMsg, { position: "top-center" }); // Let caller handle toast if needed, or keep it but allow caller to access validation errors
         // For validation errors (400), we probably want to handle them specifically in the form, not just a generic toast.
         // However, keeping toast for generic errors is good.
-        if (response?.status !== 400) {
+        if (!skipErrorToast && response?.status !== 400) {
 		    toast.error(errMsg, { position: "top-center" });
         }
 		if (response?.status === 401) {
